@@ -37,7 +37,6 @@ function oldScrabbleScorer(word) {
       newStructure[letters[i].toLowerCase()] = Number(item);
     }
   }
-  console.log(newStructure);
   return newStructure;
 };
 
@@ -85,17 +84,17 @@ const scoringAlgorithms = [
   {
     name: 'Simple Score',
     description: 'Each letter is worth one point.',
-    scorerFunction: simpleScore
+    scoringFunction: simpleScore
   },
   {
     name: 'Bonus Vowels',
     description: 'Vowels are 3 pts, consonants are 1 pt.',
-    scorerFunction: vowelBonusScore
+    scoringFunction: vowelBonusScore
   },
   {
     name: 'Scrabble',
     description: 'The traditional scoring algorithm.',
-    scorerFunction: scrabbleScore
+    scoringFunction: scrabbleScore
   }
 ];
 
@@ -106,7 +105,7 @@ function scorerPrompt(word) {
   }
   let selection = input.question("Which scoring system would you like to use? (Option 0, 1, or 2): ")
   if (options.includes(selection)){
-    console.log(`${scoringAlgorithms[selection].name} - Your score for ${word}:\n${scoringAlgorithms[selection].scorerFunction(word)}`)
+    console.log(`${scoringAlgorithms[selection].name} - Your score for ${word}:\n${scoringAlgorithms[selection].scoringFunction(word)}`)
   } else {
     scorerPrompt(word);
   }
