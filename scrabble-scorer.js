@@ -81,26 +81,23 @@ let vowelBonusScore = function(word){
   return score;
 };
 
-
-let simple = {
-  name: 'Simple Score',
-  description: 'Each letter is worth 1 point.',
-  scorerFunction: simpleScore
-};
-
-let bonus = {
-  name: 'Bonus Vowels',
-  description: 'Vowels are 3 pts, consonants are 1 pt.',
-  scorerFunction: vowelBonusScore
-};
-
-let scrabble = {
-  name: 'Scrabble',
-  description: '	The traditional scoring algorithm.',
-  scorerFunction: scrabbleScore
-};
-
-const scoringAlgorithms = [simple, bonus, scrabble];
+const scoringAlgorithms = [
+  {
+    name: 'Simple Score',
+    description: 'Each letter is worth one point.',
+    scorerFunction: simpleScore
+  },
+  {
+    name: 'Bonus Vowels',
+    description: 'Vowels are 3 pts, consonants are 1 pt.',
+    scorerFunction: vowelBonusScore
+  },
+  {
+    name: 'Scrabble',
+    description: 'The traditional scoring algorithm.',
+    scorerFunction: scrabbleScore
+  }
+];
 
 function scorerPrompt(word) {
   let options = ['0', '1', '2'];
